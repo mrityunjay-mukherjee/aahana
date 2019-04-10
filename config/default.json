@@ -1,0 +1,59 @@
+{
+    "server": {
+        "port": 5009
+    },
+    "app": {
+        "prefix": "/aahana/api",
+        "secret": "longlivenodejsafterallitsjavascript3cheershiphiphurray"
+    },
+    "mongo": {
+        "mongodb_url": "mongodb://localhost:27017",
+        "db_name": "/aahana",
+        "db_options": "?",
+        "mongodb_session_store_url": "mongodb://localhost:27017",
+        "session_db_name": "/aahanasessions",
+        "session_db_options": "?"
+    },
+    "cookie": {
+        "path": "/",
+        "name": "xsprs_sid",
+        "validity": 3600
+    },
+    "token": {
+        "validity": 86400,
+        "refreshValidity": 604800,
+        "secret": "longlivenodejsafterallitsjavascript3cheershiphiphurray"
+    },
+    "cors": {
+        "whitelist": ["http://localhost:5001","http://localhost:5004", "http://localhost:3001", "http://localhost:3000", "http://localhost:8887"]
+    },
+    "jaeger": {
+        "serviceName": "/aahana/api",
+        "reporter": {
+            "collectorEndpoint": "http://localhost:14268/api/traces"
+        },
+        "tags": {
+            "/aahana/api.version": "1.0.0"
+        }
+    },
+    "redis":{
+        "host":"10.26.32.132",
+        "port":"6379"
+    },
+    "kafka": {
+        "connect": {
+            "kafkaHost": "localhost:9092"
+        },
+        "consumer": {
+            "topics": [
+                {"topic": "aahana.login"},
+                {"topic": "aahana.logout"},
+                {"topic": "aahana.something"}
+            ]
+        },
+        "options":    {
+            "autoCommit": true,
+            "fromOffset": false
+        }
+    }
+}
